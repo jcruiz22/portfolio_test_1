@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ADD: Essential SEO meta tags -->
+    <meta name="description" content="Jean Ruiz - Professional Tech Consultant specializing in web development, e-commerce solutions, SEO optimization, and digital marketing. Get expert IT consulting services." />
+    <meta name="keywords" content="tech consultant, web development, ecommerce solutions, SEO optimization, digital marketing, business solutions" />
+    <meta name="author" content="Jean Ruiz" />
+
+    <!-- ADD: Open Graph tags for social sharing -->
+    <meta property="og:title" content="Tech Consulting | Jean Ruiz" />
+    <meta property="og:description" content="Professional tech consulting services including web development, e-commerce, and digital marketing solutions." />
+    <meta property="og:image" content="assets/header.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- ADD: Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Tech Consulting | Jean Ruiz</title>
+</head>
+
+<body>
+    <!-- ADD: Skip navigation link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav__bar">
+            <a href="#"><span class="logo nav__logo">JC.</span> Jean Ruiz</a>
+            <div class="nav__menu__btn" id="menu-btn" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                <i class="ri-menu-3-line"></i>
+            </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact" class="btn">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn__large">Contact</a>
+    </nav>
+
+    <main id="main-content">
+        <header class="section__container header__container" id="home">
+            <div class="header__image">
+                <!-- IMPROVE: Better alt text -->
+                <img src="assets/header.jpg" alt="Jean Ruiz - Professional Tech Consultant" />
+            </div>
+            <div class="header__content">
+                <div>
+                    <h1>Jean Ruiz<br />Tech Consultant<br /></h1>
+                    <p>Empowering your digital transformation</p>
+                </div>
+                <p class="section__description">
+                    Welcome to my tech consulting website! I specialize in providing expert guidance and innovative
+                    solutions to help businesses navigate the complexities of the digital landscape. Whether you're looking
+                    to enhance
+                    your IT infrastructure, optimize your software development processes, or implement cutting-edge
+                    technologies, I'm here to assist you every step of the way.
+                </p>
+                <div class="header__btn">
+                    <!-- ADD: Proper button type and aria-label -->
+                    <button class="btn" type="button" aria-label="Contact Jean Ruiz for consulting services">Hire Me Now</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="section__container about__container" id="about" aria-labelledby="about-heading">
+            <div class="about__image">
+                <!-- IMPROVE: Better alt text -->
+                <img src="assets/bg.png" alt="" class="about__bg-1" role="presentation" />
+                <img src="assets/bg.png" alt="" class="about__bg-2" role="presentation" />
+                <img src="assets/about.jpg" alt="Jean Ruiz - Tech Consultant profile photo" class="about__img" />
+            </div>
+            <div class="about__content">
+                <h2 class="section__header" id="about-heading">Get to know me</h2>
+                <p class="section__description">
+                    I am a passionate Tech Consultant with a focus on providing innovative solutions to complex problems.
+                    My goal is to help businesses leverage technology to improve efficiency and drive growth.
+                </p>
+                <div class="about__btn">
+                    <button class="btn">Download CV</button>
+                </div>
+            </div>
+        </section>
+        <section class="section__container service__container" id="service" aria-labelledby="services-heading">
+            <h2 class="section__header" id="services-heading">My Services</h2>
+            <div class="service__grid">
+                <div class="service__card">
+                    <!-- ADD: Proper aria-label for icons -->
+                    <span aria-label="Web Development Service"><i class="ri-window-fill"></i></span>
+                    <h3>Web Development</h3>
+                    <p>Building responsive and user-friendly websites tailored to your business needs.</p>
+                    <div class="marquee">
+                        <span class="marquee__inner">HTML • CSS • JavaScript • React • Vue • Next.js • Nuxt.js</span>
+                        <span class="marquee__inner">HTML • CSS • JavaScript • React • Vue • Next.js • Nuxt.js</span>
+                    </div>
+                </div>
+                <div class="service__card">
+                    <span><i class="ri-store-2-line"></i></span>
+                    <h3>e-Commerce solutions</h3>
+                    <p>Creating custom e-commerce solutions to streamline your online business and enhance customer
+                        experience.</p>
+                    <div class="marquee">
+                        <span>Shopify • WooCommerce • Magento • BigCommerce • PrestaShop</span>
+                    </div>
+                </div>
+                <div class="service__card">
+                    <span><i class="ri-google-fill"></i></span>
+                    <h3>Google ads</h3>
+                    <p>Implementing Google Ads campaigns to increase your online visibility and drive targeted traffic.</p>
+                    <div class="marquee">
+                        <span>Search Ads • Display Ads • Video Ads • Shopping Ads • Remarketing</span>
+                    </div>
+                </div>
+                <div class="service__card">
+                    <span><i class="ri-seo-line"></i></span>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimizing your website for search engines to improve rankings and attract organic traffic.</p>
+                    <div class="marquee">
+                        <span>Keyword Research • On-Page SEO • Link Building • Technical SEO</span>
+                    </div>
+                </div>
+                <div class="service__card">
+                    <span><i class="ri-suitcase-line"></i></span>
+                    <h3>Business Solutions</h3>
+                    <p>Providing strategic consulting to help small businesses scale efficiently, optimize workflows, and
+                        automate processes to maximize productivity.</p>
+                    <div class="marquee">
+                        <span>Process Automation • CRM Setup • ERP Integration • Workflow Design</span>
+                    </div>
+                </div>
+                <div class="service__card">
+                    <span><i class="ri-rocket-line"></i></span>
+                    <h3>Digital Marketing</h3>
+                    <p>Crafting comprehensive digital marketing strategies to enhance your brand presence and engagement.
+                    </p>
+                    <div class="marquee">
+                        <span>Social Media • Email Campaigns • Content Marketing • PPC • Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section__container portfolio__container" id="portfolio" aria-labelledby="portfolio-heading">
+            <h2 class="section__header" id="portfolio-heading">My Portfolio</h2>
+            <p class="section__description">
+                Here are some of the projects I have worked on. Each project showcases my skills in web development,
+                e-commerce solutions, and digital marketing strategies. Click on the images to view more details.
+            </p>
+            <div class="portfolio__grid">
+                <div class="portfolio__card">
+                    <!-- IMPROVE: Descriptive alt text and make clickable -->
+                    <a href="#" aria-label="View web development project details">
+                        <img src="assets/project-1.jpg" alt="E-commerce website project showcasing responsive design" />
+                    </a>
+                </div>
+                <div class="portfolio__card">
+                    <img src="assets/project-2.jpg" alt="portfolio">
+                </div>
+                <div class="portfolio__card">
+                    <img src="assets/project-3.jpg" alt="portfolio">
+                </div>
+                <div class="portfolio__card">
+                    <img src="assets/project-4.jpg" alt="portfolio">
+                </div>
+                <div class="portfolio__card">
+                    <img src="assets/project-5.jpg" alt="portfolio">
+                </div>
+                <div class="portfolio__card">
+                    <img src="assets/project-6.jpg" alt="portfolio">
+                </div>
+            </div>
+            <div class="portfolio__banner">
+                <div class="portfolio__banner__card">
+                    <span><i class="ri-macbook-line"></i></span>
+                    <h3>50+ Projects</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="portfolio__banner__card">
+                    <span><i class="ri-discuss-line"></i></span>
+                    <h3>100+ Happy</h3>
+                    <p>Customers</p>
+                </div>
+                <div class="portfolio__banner__card">
+                    <span><i class="ri-heart-fill"></i></span>
+                    <h3>3000+ Product tickets</h3>
+                    <p>For big corporate clients</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ADD: Footer with contact information -->
+    <footer role="contentinfo">
+        <div class="footer__container">
+            <p>&copy; 2024 Jean Ruiz. All rights reserved.</p>
+            <div class="footer__links">
+                <a href="mailto:jean@example.com">Email</a>
+                <a href="tel:+1234567890">Phone</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
