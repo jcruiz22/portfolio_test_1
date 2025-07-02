@@ -177,6 +177,7 @@ nav {
 
 .header__content {
     text-align: center;
+    margin-top: 2.5rem;
 }
 
 .header__content h1 {
@@ -199,13 +200,6 @@ nav {
     z-index: -1;
 }
 
-/* .header__image img {
-    width: 400px;
-    height: 550px;
-    object-fit: cover;
-    margin-inline: auto;
-    border-radius: 25rem;
-} */
 
 .header__image img {
     max-width: 450px;
@@ -232,12 +226,15 @@ nav {
 .about__image {
     position: relative;
     isolation: isolate;
-    max-width: 400px;
+    max-width: 500px;
     margin: auto;
 }
 
 .about__img {
     border-radius: 100%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
 }
 
 .about__bg-1,
@@ -664,11 +661,13 @@ footer {
     font-size: 1.1rem;
     padding: 1rem;
     transition: all 0.3s;
+    box-shadow: none;
 }
 
 .form__btn:hover {
     transform: translateY(-2px);
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 /* Form Success/Error Messages */
@@ -757,5 +756,11 @@ footer {
         width: 100%;
         margin: 0;
         padding: 2rem 1rem;
+    }
+
+
+    .about__img {
+        width: 400px;
+        height: 400px;
     }
 }
