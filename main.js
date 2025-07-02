@@ -81,7 +81,6 @@ contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const formData = new FormData(contactForm);
-    const formObject = Object.fromEntries(formData);
     
     // Show loading state
     const submitBtn = contactForm.querySelector('.form__btn');
@@ -96,15 +95,23 @@ contactForm.addEventListener('submit', async (e) => {
             existingMessage.remove();
         }
         
-        // Here you would typically send the data to your server
-        // For now, we'll simulate the email sending process
-        await simulateEmailSending(formObject);
+        // Try to submit to Netlify
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        });
         
-        // Show success message
-        showFormMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon.', 'success');
-        contactForm.reset();
+        if (response.ok) {
+            // Show success message
+            showFormMessage('Thank you! Your message has been sent successfully. I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+        } else {
+            throw new Error('Network response was not ok');
+        }
         
     } catch (error) {
+        console.error('Form submission error:', error);
         // Show error message
         showFormMessage('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
     } finally {
@@ -126,34 +133,6 @@ function showFormMessage(message, type) {
     setTimeout(() => {
         messageDiv.remove();
     }, 5000);
-}
-
-async function simulateEmailSending(formData) {
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Here you would integrate with your preferred email service
-    // Examples: EmailJS, Formspree, Netlify Forms, or your own backend
-    
-    // For EmailJS integration, you would do something like:
-    /*
-    return emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        message: formData.description,
-        to_email: 'your-email@example.com'
-    });
-    */
-    
-    console.log('Form Data:', formData);
-    
-    // Simulate random success/failure for demonstration
-    if (Math.random() > 0.1) {
-        return Promise.resolve();
-    } else {
-        return Promise.reject(new Error('Simulated error'));
-    }
 }
 
 // Add keyboard navigation support for mobile menu

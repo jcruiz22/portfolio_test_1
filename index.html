@@ -217,13 +217,14 @@
                     <span class="logo contact__logo">JC.</span>
                     <h3>Contact Me</h3>
                 </div>
-                <form netlify-honeypot="bot-field" name="contact" data-netlify="true" class="contact__form"
-                    id="contact-form" action="#" method="POST">
-                    <p class="hidden">
+                <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" class="contact__form"
+                    id="contact-form" method="POST">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div style="display: none;">
                         <label>
-                            Don’t fill this out if you’re human: <input name="bot-field" />
+                            Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" />
                         </label>
-                    </p>
+                    </div>
                     <div class="form__group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required aria-required="true">
