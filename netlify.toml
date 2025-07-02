@@ -1,13 +1,7 @@
 [build]
   publish = "."
 
-[[headers]]
-  for = "/assets/*.pdf"
-  [headers.values]
-    Content-Type = "application/pdf"
-    Content-Disposition = "inline"
-    Cache-Control = "public, max-age=31536000"
-
+# SEO-friendly headers for all pages
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,6 +10,38 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Add caching headers for better performance (SEO factor)
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Specific headers for HTML files (SEO important)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# PDF files configuration
+[[headers]]
+  for = "/assets/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "inline"
+    Cache-Control = "public, max-age=31536000"
+
+# Image optimization headers (improves page speed - SEO factor)
+[[headers]]
+  for = "/assets/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # Hide sensitive files
 [[redirects]]
@@ -27,3 +53,24 @@
   from = "/config/*"
   to = "/404.html"
   status = 404
+
+# SEO-friendly redirects for common URL variations
+[[redirects]]
+  from = "/home"
+  to = "/#home"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/#service"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/#about"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/#contact"
+  status = 301
