@@ -108,8 +108,6 @@ nav {
     max-width: var(--max-width);
     margin: auto;
     z-index: 9;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .nav__bar {
@@ -123,14 +121,13 @@ nav {
 
 .nav__logo {
     padding: 9px 12px;
-
-    -size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .nav__bar a {
-    color: var(--white);
-    font-weight: 600;
     font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
 }
 
 .nav__menu__btn {
@@ -734,8 +731,11 @@ footer {
         line-height: 2.8rem;
     }
     
-    .header__image::after {
-        display: none;
+    .header__image img{
+        margin: 0 auto;
+        width: 100%;
+        max-width: 400px;
+        
     }
     
     .service__card {
