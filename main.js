@@ -163,3 +163,64 @@ menuBtn.addEventListener('keydown', (e) => {
         menuBtn.click();
     }
 });
+
+// Phone input validation - only allow numbers and plus sign
+const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', (e) => {
+    // Remove any characters that are not numbers or plus sign
+    const originalValue = e.target.value;
+    e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+    
+    // Show warning message if letters were removed
+    if (originalValue !== e.target.value && /[a-zA-Z]/.test(originalValue)) {
+        showPhoneValidationMessage();
+    }
+});
+
+phoneInput.addEventListener('keypress', (e) => {
+    // Allow backspace, delete, tab, escape, enter
+    if ([8, 9, 27, 13, 46].indexOf(e.keyCode) !== -1 ||
+        // Allow Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+        (e.keyCode === 65 && e.ctrlKey === true) ||
+        (e.keyCode === 67 && e.ctrlKey === true) ||
+        (e.keyCode === 86 && e.ctrlKey === true) ||
+        (e.keyCode === 88 && e.ctrlKey === true)) {
+        return;
+    }
+    // Allow numbers (0-9) and plus sign (+)
+    if (!((e.keyCode >= 48 && e.keyCode <= 57) || // 0-9 on main keyboard
+          (e.keyCode >= 96 && e.keyCode <= 105) || // 0-9 on numpad
+          e.keyCode === 43 || // plus sign
+          (e.shiftKey && e.keyCode === 187))) { // plus sign with shift
+        e.preventDefault();
+        
+        // Show warning message for invalid characters
+        if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+            showPhoneValidationMessage();
+        }
+    }
+});
+
+function showPhoneValidationMessage() {
+    // Remove existing phone validation message
+    const existingMessage = document.querySelector('.phone__validation__message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create and show new validation message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'phone__validation__message';
+    messageDiv.textContent = 'Only numbers and + sign are allowed';
+    
+    const phoneGroup = phoneInput.closest('.form__group');
+    phoneGroup.appendChild(messageDiv);
+    
+    // Remove message after 3 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 3000);
+}

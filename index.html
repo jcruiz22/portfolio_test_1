@@ -5,13 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- ADD: Essential SEO meta tags -->
-    <meta name="description" content="Jean Ruiz - Professional Tech Consultant specializing in web development, e-commerce solutions, SEO optimization, and digital marketing. Get expert IT consulting services." />
-    <meta name="keywords" content="tech consultant, web development, ecommerce solutions, SEO optimization, digital marketing, business solutions" />
+    <meta name="description"
+        content="Jean Ruiz - Professional Tech Consultant specializing in web development, e-commerce solutions, SEO optimization, and digital marketing. Get expert IT consulting services." />
+    <meta name="keywords"
+        content="tech consultant, web development, ecommerce solutions, SEO optimization, digital marketing, business solutions" />
     <meta name="author" content="Jean Ruiz" />
 
     <!-- ADD: Open Graph tags for social sharing -->
     <meta property="og:title" content="Tech Consulting | Jean Ruiz" />
-    <meta property="og:description" content="Professional tech consulting services including web development, e-commerce, and digital marketing solutions." />
+    <meta property="og:description"
+        content="Professional tech consulting services including web development, e-commerce, and digital marketing solutions." />
     <meta property="og:image" content="assets/header.jpg" />
     <meta property="og:url" content="https://yourwebsite.com" />
     <meta property="og:type" content="website" />
@@ -58,14 +61,16 @@
                 </div>
                 <p class="section__description">
                     Welcome to my tech consulting website! I specialize in providing expert guidance and innovative
-                    solutions to help businesses navigate the complexities of the digital landscape. Whether you're looking
+                    solutions to help businesses navigate the complexities of the digital landscape. Whether you're
+                    looking
                     to enhance
                     your IT infrastructure, optimize your software development processes, or implement cutting-edge
                     technologies, I'm here to assist you every step of the way.
                 </p>
                 <div class="header__btn">
                     <!-- ADD: Proper button type and aria-label -->
-                    <button class="btn" type="button" aria-label="Contact Jean Ruiz for consulting services">Hire Me Now</button>
+                    <button class="btn" type="button" aria-label="Contact Jean Ruiz for consulting services">Hire Me
+                        Now</button>
                 </div>
             </div>
         </header>
@@ -80,7 +85,8 @@
             <div class="about__content">
                 <h2 class="section__header" id="about-heading">Get to know me</h2>
                 <p class="section__description">
-                    I am a passionate Tech Consultant with a focus on providing innovative solutions to complex problems.
+                    I am a passionate Tech Consultant with a focus on providing innovative solutions to complex
+                    problems.
                     My goal is to help businesses leverage technology to improve efficiency and drive growth.
                 </p>
                 <div class="about__btn">
@@ -113,7 +119,8 @@
                 <div class="service__card">
                     <span><i class="ri-google-fill"></i></span>
                     <h3>Google ads</h3>
-                    <p>Implementing Google Ads campaigns to increase your online visibility and drive targeted traffic.</p>
+                    <p>Implementing Google Ads campaigns to increase your online visibility and drive targeted traffic.
+                    </p>
                     <div class="marquee">
                         <span>Search Ads • Display Ads • Video Ads • Shopping Ads • Remarketing</span>
                     </div>
@@ -129,7 +136,8 @@
                 <div class="service__card">
                     <span><i class="ri-suitcase-line"></i></span>
                     <h3>Business Solutions</h3>
-                    <p>Providing strategic consulting to help small businesses scale efficiently, optimize workflows, and
+                    <p>Providing strategic consulting to help small businesses scale efficiently, optimize workflows,
+                        and
                         automate processes to maximize productivity.</p>
                     <div class="marquee">
                         <span>Process Automation • CRM Setup • ERP Integration • Workflow Design</span>
@@ -138,7 +146,8 @@
                 <div class="service__card">
                     <span><i class="ri-rocket-line"></i></span>
                     <h3>Digital Marketing</h3>
-                    <p>Crafting comprehensive digital marketing strategies to enhance your brand presence and engagement.
+                    <p>Crafting comprehensive digital marketing strategies to enhance your brand presence and
+                        engagement.
                     </p>
                     <div class="marquee">
                         <span>Social Media • Email Campaigns • Content Marketing • PPC • Analytics</span>
@@ -199,7 +208,8 @@
             <div class="contact__content">
                 <h2 class="section__header" id="contact-heading">Get In Touch</h2>
                 <p class="section__description">
-                    Ready to transform your business with cutting-edge technology solutions? Let's discuss your project and see how I can help you achieve your goals.
+                    Ready to transform your business with cutting-edge technology solutions? Let's discuss your project
+                    and see how I can help you achieve your goals.
                 </p>
             </div>
             <div class="contact__form__container">
@@ -207,14 +217,21 @@
                     <span class="logo contact__logo">JC.</span>
                     <h3>Contact Me</h3>
                 </div>
-                <form Netlify name="contact__form" data-netlify="true" class="contact__form" id="contact-form" action="#" method="POST">
+                <form netlify-honeypot="bot-field" name="contact" data-netlify="true" class="contact__form"
+                    id="contact-form" action="#" method="POST">
+                    <p class="hidden">
+                        <label>
+                            Don’t fill this out if you’re human: <input name="bot-field" />
+                        </label>
+                    </p>
                     <div class="form__group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required aria-required="true">
                     </div>
                     <div class="form__group">
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required aria-required="true">
+                        <input type="tel" id="phone" name="phone" pattern="[+0-9]*" inputmode="numeric" required
+                            aria-required="true">
                     </div>
                     <div class="form__group">
                         <label for="email">Email Address *</label>
@@ -222,7 +239,8 @@
                     </div>
                     <div class="form__group">
                         <label for="description">Project Description *</label>
-                        <textarea id="description" name="description" rows="5" required aria-required="true" placeholder="Tell me about your project, goals, and how I can help you..."></textarea>
+                        <textarea id="description" name="description" rows="5" required aria-required="true"
+                            placeholder="Tell me about your project, goals, and how I can help you..."></textarea>
                     </div>
                     <button type="submit" class="btn form__btn">Send Message</button>
                 </form>
