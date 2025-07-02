@@ -203,3 +203,180 @@ function showPhoneValidationMessage() {
         }
     }, 3000);
 }
+
+// CV Download functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadCVBtn = document.querySelector('.about__btn a');
+    
+    if (downloadCVBtn) {
+        downloadCVBtn.addEventListener('click', function(e) {
+            // Get the file path
+            const filePath = this.getAttribute('href');
+            
+            // Create a temporary link element for download
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = 'Jean_Carlo_Ruiz_CV.pdf';
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Prevent default link behavior
+            e.preventDefault();
+        });
+    }
+});
+
+// CV Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const cvModal = document.getElementById('cv-modal');
+    const cvModalOverlay = document.getElementById('cv-modal-overlay');
+    const cvModalClose = document.getElementById('cv-modal-close');
+    const cvDownloadBtn = document.querySelector('.cv-download-btn');
+    
+    // Open CV modal
+    function openCVModal() {
+        cvModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Close CV modal
+    function closeCVModal() {
+        cvModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Event listeners
+    if (cvDownloadBtn) {
+        cvDownloadBtn.addEventListener('click', openCVModal);
+    }
+    
+    if (cvModalClose) {
+        cvModalClose.addEventListener('click', closeCVModal);
+    }
+    
+    if (cvModalOverlay) {
+        cvModalOverlay.addEventListener('click', closeCVModal);
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cvModal.classList.contains('active')) {
+            closeCVModal();
+        }
+    });
+});
+
+// Data protection and obfuscation
+const protectedData = {
+    // Base64 encoded and split for basic obfuscation
+    phone: atob('KzM0NjQ3ODI5NDQz'),
+    email: atob('amNydWl6bTIyQGdtYWlsLmNvbQ=='),
+    social: {
+        twitter: atob('aHR0cHM6Ly94LmNvbS9qY3J1aXptMjI='),
+        linkedin: atob('aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2plYW4tY2FybG8tcnVpei03ODQzNWIxYjIv'),
+        instagram: atob('aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9qZWFuY2FydWl6Lw==')
+    }
+};
+
+// Anti-bot protection
+function isHuman() {
+    // Simple bot detection
+    return navigator.webdriver !== true && 
+           !window.phantom && 
+           !window._phantom &&
+           typeof window.callPhantom === 'undefined';
+}
+
+// Contact handler with protection
+function handleContact(type, value) {
+    if (!isHuman()) {
+        console.log('Automated access detected');
+        return;
+    }
+
+    // Add slight delay to confuse scrapers
+    setTimeout(() => {
+        if (type === 'email') {
+            window.location.href = `mailto:${value}`;
+        } else if (type === 'phone') {
+            window.location.href = `tel:${value}`;
+        } else if (type === 'url') {
+            window.open(value, '_blank', 'noopener,noreferrer');
+        }
+    }, Math.random() * 100 + 50);
+}
+
+// Social media handler
+function handleSocialClick(platform) {
+    if (!isHuman()) return;
+    
+    const url = protectedData.social[platform];
+    if (url) {
+        handleContact('url', url);
+    }
+}
+
+// Contact trigger handlers
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle contact buttons
+    const contactTriggers = document.querySelectorAll('.contact-trigger');
+    contactTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            if (action === 'call') {
+                handleContact('phone', protectedData.phone);
+            }
+        });
+    });
+
+    // Handle social links
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const contactType = this.getAttribute('data-contact');
+            const socialType = this.getAttribute('data-social');
+            
+            if (contactType === 'email') {
+                handleContact('email', protectedData.email);
+            } else if (contactType === 'phone') {
+                handleContact('phone', protectedData.phone);
+            } else if (socialType) {
+                handleSocialClick(socialType);
+            }
+        });
+    });
+
+    // Disable right-click on contact elements (basic protection)
+    const protectedElements = document.querySelectorAll('.social-link, .contact-trigger');
+    protectedElements.forEach(element => {
+        element.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    });
+});
+
+// Additional scraper protection
+function addNoiseToDOM() {
+    // Add fake contact info to confuse scrapers
+    const fakeContacts = [
+        'fake@example.com',
+        '+1234567890',
+        'notreal@test.com'
+    ];
+    
+    fakeContacts.forEach(fake => {
+        const hiddenSpan = document.createElement('span');
+        hiddenSpan.textContent = fake;
+        hiddenSpan.style.display = 'none';
+        hiddenSpan.style.visibility = 'hidden';
+        hiddenSpan.style.position = 'absolute';
+        hiddenSpan.style.left = '-9999px';
+        document.body.appendChild(hiddenSpan);
+    });
+}
+
+// Run protection on load
+document.addEventListener('DOMContentLoaded', addNoiseToDOM);
