@@ -194,6 +194,40 @@
                 </div>
             </div>
         </section>
+
+        <section class="section__container contact__container" id="contact" aria-labelledby="contact-heading">
+            <div class="contact__content">
+                <h2 class="section__header" id="contact-heading">Get In Touch</h2>
+                <p class="section__description">
+                    Ready to transform your business with cutting-edge technology solutions? Let's discuss your project and see how I can help you achieve your goals.
+                </p>
+            </div>
+            <div class="contact__form__container">
+                <div class="contact__form__header">
+                    <span class="logo contact__logo">JC.</span>
+                    <h3>Contact Me</h3>
+                </div>
+                <form name="contact__form" data-netlify="true" class="contact__form" id="contact-form" action="#" method="POST">
+                    <div class="form__group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form__group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required aria-required="true">
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form__group">
+                        <label for="description">Project Description *</label>
+                        <textarea id="description" name="description" rows="5" required aria-required="true" placeholder="Tell me about your project, goals, and how I can help you..."></textarea>
+                    </div>
+                    <button type="submit" class="btn form__btn">Send Message</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <!-- ADD: Footer with contact information -->
