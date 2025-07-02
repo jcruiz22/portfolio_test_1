@@ -17,6 +17,17 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    background-image: var(--gradient-1);
+    overflow-x: hidden;
+}
+
 .section__container {
     max-width: var(--max-width);
     margin: auto;
@@ -97,6 +108,8 @@ nav {
     max-width: var(--max-width);
     margin: auto;
     z-index: 9;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav__bar {
@@ -211,6 +224,7 @@ nav {
     right: 1rem;
     top: 50%;
     transform: translate(50%, -50%) rotate(90deg);
+    white-space: nowrap;
 }
 
 .about__container {
@@ -312,16 +326,16 @@ nav {
     animation: marquee 12s linear infinite;
     color: var(--white);
     font-size: 0.9rem;
+    padding-left: 100%;
 }
 
 /* keyframes to scroll left→right */
 @keyframes marquee {
     from {
-        transform: translateX(-100%);
+        transform: translateX(0%);
     }
-
     to {
-        transform: translateX(100%);
+        transform: translateX(-100%);
     }
 }
 
@@ -560,6 +574,7 @@ footer {
 .contact__container {
     display: grid;
     gap: 3rem;
+    overflow-x: hidden;
 }
 
 .contact__content {
@@ -573,6 +588,8 @@ footer {
     background-image: var(--gradient-2);
     border-radius: 1rem;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact__form__header {
@@ -600,12 +617,15 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .form__group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .form__group label {
@@ -624,6 +644,9 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     color: #333;
     transition: all 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .form__group input:focus,
@@ -691,5 +714,48 @@ footer {
 
     .contact__form__container {
         margin: unset;
+    }
+}
+
+/* Mobile specific fixes */
+@media (max-width: 767px) {
+    .section__container {
+        padding: 3rem 1rem;
+    }
+    
+    .header__container {
+        padding-top: 6rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .header__content h1 {
+        font-size: 2.5rem;
+        line-height: 2.8rem;
+    }
+    
+    .header__image::after {
+        display: none;
+    }
+    
+    .service__card {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .contact__form__container {
+        margin: 0 1rem;
+        padding: 1.5rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .nav__links {
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 2rem 1rem;
     }
 }
