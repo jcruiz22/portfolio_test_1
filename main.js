@@ -210,63 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (downloadCVBtn) {
         downloadCVBtn.addEventListener('click', function(e) {
-            // Get the file path
-            const filePath = this.getAttribute('href');
-            
-            // Create a temporary link element for download
-            const link = document.createElement('a');
-            link.href = filePath;
-            link.download = 'Jean_Carlo_Ruiz_CV.pdf';
-            
-            // Append to body, click, and remove
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Prevent default link behavior
-            e.preventDefault();
+            // Let the browser handle opening 
+            console.log('CV opening in new tab');
+            // The target="_blank" attribute will handle opening in new tab
         });
     }
-});
-
-// CV Modal functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const cvModal = document.getElementById('cv-modal');
-    const cvModalOverlay = document.getElementById('cv-modal-overlay');
-    const cvModalClose = document.getElementById('cv-modal-close');
-    const cvDownloadBtn = document.querySelector('.cv-download-btn');
-    
-    // Open CV modal
-    function openCVModal() {
-        cvModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    // Close CV modal
-    function closeCVModal() {
-        cvModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    // Event listeners
-    if (cvDownloadBtn) {
-        cvDownloadBtn.addEventListener('click', openCVModal);
-    }
-    
-    if (cvModalClose) {
-        cvModalClose.addEventListener('click', closeCVModal);
-    }
-    
-    if (cvModalOverlay) {
-        cvModalOverlay.addEventListener('click', closeCVModal);
-    }
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && cvModal.classList.contains('active')) {
-            closeCVModal();
-        }
-    });
 });
 
 // Data protection and obfuscation
