@@ -58,21 +58,21 @@ ScrollReveal().reveal('.services__content .service__card', {
     interval: 200,
 });
 
-//portfolio container
-ScrollReveal().reveal('.portfolio__card', {
-    duraçtion: 1000,
-    interval: 500,
-});
+// //portfolio container
+// ScrollReveal().reveal('.portfolio__card', {
+//     duraçtion: 1000,
+//     interval: 500,
+// });
 
-ScrollReveal().reveal('.portfolio__content .section__description', {
-    ...scrollRevealOptions,
-    delay: 500,
-});
+// ScrollReveal().reveal('.portfolio__content .section__description', {
+//     ...scrollRevealOptions,
+//     delay: 500,
+// });
 
-ScrollReveal().reveal('.portfolio__content .portfolio__btn', {
-    ...scrollRevealOptions,
-    delay: 1000,
-});
+// ScrollReveal().reveal('.portfolio__content .portfolio__btn', {
+//     ...scrollRevealOptions,
+//     delay: 1000,
+// });
 
 // Contact Form Handling
 const contactForm = document.getElementById('contact-form');
