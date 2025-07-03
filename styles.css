@@ -207,19 +207,6 @@ nav {
     border-radius: 25rem;
 }
 
-/* .header__image {
-    position: relative;
-    isolation: isolate;
-    z-index: -1;
-}
-
-
-.header__image img {
-    max-width: 450px;
-    margin-inline: auto;
-    border-radius: 25rem;
-} */
-
 .header__image::after {
     position: absolute;
     content: "J.CARLO";
