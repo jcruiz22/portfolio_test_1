@@ -202,16 +202,29 @@ nav {
 
 
 .header__image img {
-    max-width: 450px;
+    width: 540px;
     margin-inline: auto;
     border-radius: 25rem;
 }
 
+/* .header__image {
+    position: relative;
+    isolation: isolate;
+    z-index: -1;
+}
+
+
+.header__image img {
+    max-width: 450px;
+    margin-inline: auto;
+    border-radius: 25rem;
+} */
+
 .header__image::after {
     position: absolute;
-    content: "J. CARLO";
+    content: "J.CARLO";
     letter-spacing: 1.5rem;
-    opacity: 0.5;
+    opacity: 0.8;
     right: 1rem;
     top: 50%;
     transform: translate(50%, -50%) rotate(90deg);
@@ -231,10 +244,11 @@ nav {
 }
 
 .about__img {
-    border-radius: 100%;
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1; /* Ensures a perfect circle */
+    object-fit: cover; /* Ensures the image fits within the circle */
 }
 
 .about__bg-1,
@@ -782,9 +796,15 @@ footer {
         padding: 2rem 1rem;
     }
 
+    .about__image {
+        position: relative;
+        isolation: isolate;
+        max-width: 350px;
+        max-height: 350px;
+    }
 
     .about__img {
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
     }
 }
